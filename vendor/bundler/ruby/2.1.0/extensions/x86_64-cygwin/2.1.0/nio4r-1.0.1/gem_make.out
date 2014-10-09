@@ -1,0 +1,311 @@
+/home/comtra/.rbenv/versions/2.1.2/bin/ruby.exe extconf.rb 
+checking for rb_thread_blocking_region()... yes
+checking for rb_thread_call_without_gvl()... yes
+checking for sys/select.h... yes
+checking for poll.h... yes
+checking for sys/epoll.h... no
+checking for sys/event.h... no
+checking for port.h... no
+checking for sys/resource.h... yes
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling monitor.c
+monitor.c: 関数 ‘NIO_Monitor_initialize’ 内:
+monitor.c:100:5: 警告: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+     ev_io_init(&monitor->ev_io, NIO_Selector_monitor_callback, FPTR_TO_FD(fptr), monitor->interests);
+     ^
+monitor.c:100:5: 警告: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+monitor.c:100:5: 警告: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+compiling nio4r_ext.c
+In file included from nio4r_ext.c:7:0:
+../libev/ev.c:481:48: 警告: コメント内に "/*" があります [-Wcomment]
+ /*#define MIN_INTERVAL  0.00000095367431640625 /* 1/2**20, good till 2200 */
+ ^
+In file included from nio4r_ext.c:7:0:
+../libev/ev.c:1535:31: 警告: ‘ev_default_loop_ptr’ が初期化され、 ‘extern’ として宣言されています [デフォルトで有効]
+   EV_API_DECL struct ev_loop *ev_default_loop_ptr = 0; /* needs to be initialised to make it a definition despite extern */
+                               ^
+../libev/ev.c: 関数 ‘ev_time’ 内:
+../libev/ev.c:1575:3: 警告: ISO C90 は宣言とコードの混合を禁止しています [-Wdeclaration-after-statement]
+   struct timeval tv;
+   ^
+../libev/ev.c: 関数 ‘array_nextsize’ 内:
+../libev/ev.c:1644:19: 警告: 符号付きと符号無しの整数式の間での比較です [-Wsign-compare]
+   if (elem * ncur > MALLOC_ROUND - sizeof (void *) * 4)
+                   ^
+../libev/ev.c: 関数 ‘evpipe_init’ 内:
+../libev/ev.c:2094:3: 警告: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+   if (!ev_is_active (&pipe_w))
+   ^
+In file included from ../libev/ev.c:2400:0,
+                 from nio4r_ext.c:7:
+../libev/ev_poll.c: トップレベル:
+../libev/ev_poll.c:42:1: 警告: ‘static’ は宣言の開始ではありません [-Wold-style-declaration]
+ void inline_size
+ ^
+../libev/ev_poll.c:42:1: 警告: ‘__inline__’ は宣言の開始ではありません [-Wold-style-declaration]
+In file included from ../libev/ev.c:178:0,
+                 from nio4r_ext.c:7:
+../libev/ev_poll.c: 関数 ‘poll_poll’ 内:
+../libev/ev_poll.c:110:77: 警告: カンマ演算子の左側の式に効力がありません [-Wunused-value]
+         assert (("libev: poll() returned illegal result, broken BSD kernel?", p < polls + pollcnt));
+                                                                             ^
+In file included from ../libev/ev.c:2400:0,
+                 from nio4r_ext.c:7:
+../libev/ev_poll.c: トップレベル:
+../libev/ev_poll.c:129:1: 警告: ‘static’ は宣言の開始ではありません [-Wold-style-declaration]
+ int inline_size
+ ^
+../libev/ev_poll.c:129:1: 警告: ‘__inline__’ は宣言の開始ではありません [-Wold-style-declaration]
+../libev/ev_poll.c:142:1: 警告: ‘static’ は宣言の開始ではありません [-Wold-style-declaration]
+ void inline_size
+ ^
+../libev/ev_poll.c:142:1: 警告: ‘__inline__’ は宣言の開始ではありません [-Wold-style-declaration]
+In file included from ../libev/ev.c:2403:0,
+                 from nio4r_ext.c:7:
+../libev/ev_select.c:274:1: 警告: ‘static’ は宣言の開始ではありません [-Wold-style-declaration]
+ int inline_size
+ ^
+../libev/ev_select.c:274:1: 警告: ‘__inline__’ は宣言の開始ではありません [-Wold-style-declaration]
+../libev/ev_select.c:303:1: 警告: ‘static’ は宣言の開始ではありません [-Wold-style-declaration]
+ void inline_size
+ ^
+../libev/ev_select.c:303:1: 警告: ‘__inline__’ は宣言の開始ではありません [-Wold-style-declaration]
+In file included from nio4r_ext.c:7:0:
+../libev/ev.c:2419:1: 警告: ‘static’ は宣言の開始ではありません [-Wold-style-declaration]
+ int inline_size ecb_cold
+ ^
+../libev/ev.c:2419:1: 警告: ‘__inline__’ は宣言の開始ではありません [-Wold-style-declaration]
+../libev/ev.c: 関数 ‘loop_init’ 内:
+../libev/ev.c:2623:7: 警告: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+       ev_prepare_init (&pending_w, pendingcb);
+       ^
+../libev/ev.c:2623:7: 警告: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+../libev/ev.c:2623:7: 警告: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+../libev/ev.c:2626:7: 警告: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+       ev_init (&pipe_w, pipecb);
+       ^
+../libev/ev.c:2626:7: 警告: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+../libev/ev.c:2626:7: 警告: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+../libev/ev.c:2627:7: 警告: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+       ev_set_priority (&pipe_w, EV_MAXPRI);
+       ^
+../libev/ev.c: 関数 ‘ev_loop_destroy’ 内:
+../libev/ev.c:2654:3: 警告: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+   if (ev_is_default_loop (EV_A) && ev_is_active (&childev))
+   ^
+../libev/ev.c:2661:3: 警告: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+   if (ev_is_active (&pipe_w))
+   ^
+../libev/ev.c: 関数 ‘loop_fork’ 内:
+../libev/ev.c:2764:3: 警告: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+   if (ev_is_active (&pipe_w))
+   ^
+In file included from ../libev/ev.c:178:0,
+                 from nio4r_ext.c:7:
+../libev/ev.c: 関数 ‘verify_watcher’ 内:
+../libev/ev.c:2806:49: 警告: カンマ演算子の左側の式に効力がありません [-Wunused-value]
+   assert (("libev: watcher has invalid priority", ABSPRI (w) >= 0 && ABSPRI (w) < NUMPRI));
+                                                 ^
+../libev/ev.c:2809:59: 警告: カンマ演算子の左側の式に効力がありません [-Wunused-value]
+     assert (("libev: pending watcher not on pending queue", pendings [ABSPRI (w)][w->pending - 1].w == w));
+                                                           ^
+../libev/ev.c: 関数 ‘verify_heap’ 内:
+../libev/ev.c:2819:54: 警告: カンマ演算子の左側の式に効力がありません [-Wunused-value]
+       assert (("libev: active index mismatch in heap", ev_active (ANHE_w (heap [i])) == i));
+                                                      ^
+../libev/ev.c:2820:48: 警告: カンマ演算子の左側の式に効力がありません [-Wunused-value]
+       assert (("libev: heap condition violated", i == HEAP0 || ANHE_at (heap [HPARENT (i)]) <= ANHE_at (heap [i])));
+                                                ^
+../libev/ev.c:2821:47: 警告: カンマ演算子の左側の式に効力がありません [-Wunused-value]
+       assert (("libev: heap at cache mismatch", ANHE_at (heap [i]) == ev_at (ANHE_w (heap [i]))));
+                                               ^
+../libev/ev.c: 関数 ‘array_verify’ 内:
+../libev/ev.c:2832:46: 警告: カンマ演算子の左側の式に効力がありません [-Wunused-value]
+       assert (("libev: active index mismatch", ev_active (ws [cnt]) == cnt + 1));
+                                              ^
+../libev/ev.c: 関数 ‘ev_verify’ 内:
+../libev/ev.c:2850:47: 警告: カンマ演算子の左側の式に効力がありません [-Wunused-value]
+     assert (("libev: negative fd in fdchanges", fdchanges [i] >= 0));
+                                               ^
+../libev/ev.c:2863:64: 警告: カンマ演算子の左側の式に効力がありません [-Wunused-value]
+               assert (("libev: io watcher list contains a loop", w != w2));
+                                                                ^
+../libev/ev.c:2867:61: 警告: カンマ演算子の左側の式に効力がありません [-Wunused-value]
+           assert (("libev: inactive fd watcher on anfd list", ev_active (w) == 1));
+                                                             ^
+../libev/ev.c:2868:65: 警告: カンマ演算子の左側の式に効力がありません [-Wunused-value]
+           assert (("libev: fd mismatch between watcher and anfd", ((ev_io *)w)->fd == i));
+                                                                 ^
+In file included from nio4r_ext.c:7:0:
+../libev/ev.c: 関数 ‘ev_default_loop’ 内:
+../libev/ev.c:2945:11: 警告: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+           ev_signal_init (&childev, childcb, SIGCHLD);
+           ^
+../libev/ev.c:2945:11: 警告: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+../libev/ev.c:2945:11: 警告: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+../libev/ev.c:2946:11: 警告: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+           ev_set_priority (&childev, EV_MAXPRI);
+           ^
+In file included from ../libev/ev.c:178:0,
+                 from nio4r_ext.c:7:
+../libev/ev.c: 関数 ‘timers_reify’ 内:
+../libev/ev.c:3050:93: 警告: カンマ演算子の左側の式に効力がありません [-Wunused-value]
+               assert (("libev: negative ev_timer repeat value found while processing timers", w->repeat > 0.));
+                                                                                             ^
+../libev/ev.c: 関数 ‘periodics_reify’ 内:
+../libev/ev.c:3112:90: 警告: カンマ演算子の左側の式に効力がありません [-Wunused-value]
+               assert (("libev: ev_periodic reschedule callback returned time in the past", ev_at (w) >= ev_rt_now));
+                                                                                          ^
+In file included from nio4r_ext.c:7:0:
+../libev/ev.c: 関数 ‘ev_backend_poll’ 内:
+../libev/ev.c:3257:1: 警告: 非 void を戻す関数内に return 文がありません [-Wreturn-type]
+ }
+ ^
+In file included from ../libev/ev.c:178:0,
+                 from nio4r_ext.c:7:
+../libev/ev.c: 関数 ‘ev_run’ 内:
+../libev/ev.c:3274:62: 警告: カンマ演算子の左側の式に効力がありません [-Wunused-value]
+   assert (("libev: ev_loop recursion during release detected", loop_done != EVBREAK_RECURSE));
+                                                              ^
+In file included from nio4r_ext.c:7:0:
+../libev/ev.c:3445:9: 警告: 関数 ‘rb_thread_call_without_gvl’ の暗黙的な宣言です [-Wimplicit-function-declaration]
+         rb_thread_call_without_gvl(ev_backend_poll, (void *)&poll_args, RUBY_UBF_IO, 0);
+         ^
+../libev/ev.c:3460:13: 警告: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+             assert (("libev: pipe_w not active, but pipe not written", ev_is_active (&pipe_w)));
+             ^
+In file included from ../libev/ev.c:178:0,
+                 from nio4r_ext.c:7:
+../libev/ev.c:3460:70: 警告: カンマ演算子の左側の式に効力がありません [-Wunused-value]
+             assert (("libev: pipe_w not active, but pipe not written", ev_is_active (&pipe_w)));
+                                                                      ^
+../libev/ev.c: 関数 ‘ev_io_start’ 内:
+../libev/ev.c:3634:56: 警告: カンマ演算子の左側の式に効力がありません [-Wunused-value]
+   assert (("libev: ev_io_start called with negative fd", fd >= 0));
+                                                        ^
+../libev/ev.c:3635:63: 警告: カンマ演算子の左側の式に効力がありません [-Wunused-value]
+   assert (("libev: ev_io_start called with illegal event mask", !(w->events & ~(EV__IOFDSET | EV_READ | EV_WRITE))));
+                                                               ^
+../libev/ev.c:3644:62: 警告: カンマ演算子の左側の式に効力がありません [-Wunused-value]
+   assert (("libev: ev_io_start called with corrupted watcher", ((WL)w)->next != (WL)w));
+                                                              ^
+../libev/ev.c: 関数 ‘ev_io_stop’ 内:
+../libev/ev.c:3659:88: 警告: カンマ演算子の左側の式に効力がありません [-Wunused-value]
+   assert (("libev: ev_io_stop called with illegal fd (must stay constant after start!)", w->fd >= 0 && w->fd < anfdmax));
+                                                                                        ^
+../libev/ev.c: 関数 ‘ev_timer_start’ 内:
+../libev/ev.c:3679:75: 警告: カンマ演算子の左側の式に効力がありません [-Wunused-value]
+   assert (("libev: ev_timer_start called with negative timer repeat value", w->repeat >= 0.));
+                                                                           ^
+../libev/ev.c: 関数 ‘ev_timer_stop’ 内:
+../libev/ev.c:3707:53: 警告: カンマ演算子の左側の式に効力がありません [-Wunused-value]
+     assert (("libev: internal timer heap corruption", ANHE_w (timers [active]) == (WT)w));
+                                                     ^
+../libev/ev.c: 関数 ‘ev_periodic_start’ 内:
+../libev/ev.c:3769:78: 警告: カンマ演算子の左側の式に効力がありません [-Wunused-value]
+       assert (("libev: ev_periodic_start called with negative interval value", w->interval >= 0.));
+                                                                              ^
+../libev/ev.c: 関数 ‘ev_periodic_stop’ 内:
+../libev/ev.c:3801:56: 警告: カンマ演算子の左側の式に効力がありません [-Wunused-value]
+     assert (("libev: internal periodic heap corruption", ANHE_w (periodics [active]) == (WT)w));
+                                                        ^
+../libev/ev.c: 関数 ‘ev_signal_start’ 内:
+../libev/ev.c:3838:70: 警告: カンマ演算子の左側の式に効力がありません [-Wunused-value]
+   assert (("libev: ev_signal_start called with illegal signal number", w->signum > 0 && w->signum < EV_NSIG));
+                                                                      ^
+../libev/ev.c:3841:73: 警告: カンマ演算子の左側の式に効力がありません [-Wunused-value]
+   assert (("libev: a signal must not be attached to two different loops",
+                                                                         ^
+../libev/ev.c: 関数 ‘ev_child_start’ 内:
+../libev/ev.c:3959:74: 警告: カンマ演算子の左側の式に効力がありません [-Wunused-value]
+   assert (("libev: child watchers are only supported in the default loop", loop == ev_default_loop_ptr));
+                                                                          ^
+In file included from nio4r_ext.c:7:0:
+../libev/ev.c: 関数 ‘ev_stat_start’ 内:
+../libev/ev.c:4303:3: 警告: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+   ev_timer_init (&w->timer, stat_timer_cb, 0., w->interval ? w->interval : DEF_STAT_INTERVAL);
+   ^
+../libev/ev.c:4303:3: 警告: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+../libev/ev.c:4303:3: 警告: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+../libev/ev.c:4303:3: 警告: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+../libev/ev.c:4304:3: 警告: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+   ev_set_priority (&w->timer, ev_priority (w));
+   ^
+../libev/ev.c: 関数 ‘ev_stat_stop’ 内:
+../libev/ev.c:4336:3: 警告: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+   if (ev_is_active (&w->timer))
+   ^
+In file included from ../libev/ev.c:178:0,
+                 from nio4r_ext.c:7:
+../libev/ev.c: 関数 ‘ev_embed_start’ 内:
+../libev/ev.c:4538:60: 警告: カンマ演算子の左側の式に効力がありません [-Wunused-value]
+     assert (("libev: loop to be embedded is not embeddable", backend & ev_embeddable_backends ()));
+                                                            ^
+In file included from nio4r_ext.c:7:0:
+../libev/ev.c:4539:5: 警告: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+     ev_io_init (&w->io, embed_io_cb, backend_fd, EV_READ);
+     ^
+../libev/ev.c:4539:5: 警告: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+../libev/ev.c:4539:5: 警告: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+../libev/ev.c:4544:3: 警告: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+   ev_set_priority (&w->io, ev_priority (w));
+   ^
+../libev/ev.c:4547:3: 警告: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+   ev_prepare_init (&w->prepare, embed_prepare_cb);
+   ^
+../libev/ev.c:4547:3: 警告: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+../libev/ev.c:4547:3: 警告: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+../libev/ev.c:4548:3: 警告: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+   ev_set_priority (&w->prepare, EV_MINPRI);
+   ^
+../libev/ev.c:4551:3: 警告: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+   ev_fork_init (&w->fork, embed_fork_cb);
+   ^
+../libev/ev.c:4551:3: 警告: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+../libev/ev.c:4551:3: 警告: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+../libev/ev.c: 関数 ‘ev_once’ 内:
+../libev/ev.c:4761:3: 警告: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+   ev_init (&once->io, once_cb_io);
+   ^
+../libev/ev.c:4761:3: 警告: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+../libev/ev.c:4761:3: 警告: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+../libev/ev.c:4768:3: 警告: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+   ev_init (&once->to, once_cb_to);
+   ^
+../libev/ev.c:4768:3: 警告: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+../libev/ev.c:4768:3: 警告: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+../libev/ev.c:4771:7: 警告: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+       ev_timer_set (&once->to, timeout, 0.);
+       ^
+../libev/ev.c: トップレベル:
+../libev/ev.c:4887:27: 警告: コメント内に "/*" があります [-Wcomment]
+ /* EV_STAT     0x00001000 /* stat data changed */
+ ^
+../libev/ev.c:4888:27: 警告: コメント内に "/*" があります [-Wcomment]
+ /* EV_EMBED    0x00010000 /* embedded event loop needs sweep */
+ ^
+In file included from nio4r_ext.c:7:0:
+../libev/ev.c:1901:1: 警告: ‘fd_rearm_all’ が定義されましたが使用されません [-Wunused-function]
+ fd_rearm_all (EV_P)
+ ^
+compiling selector.c
+selector.c: 関数 ‘NIO_Selector_allocate’ 内:
+selector.c:96:5: 警告: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+     ev_init(&selector->timer, NIO_Selector_timeout_callback);
+     ^
+selector.c:96:5: 警告: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+selector.c:96:5: 警告: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+selector.c:101:5: 警告: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+     ev_io_init(&selector->wakeup, NIO_Selector_wakeup_callback, selector->wakeup_reader, EV_READ);
+     ^
+selector.c:101:5: 警告: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+selector.c:101:5: 警告: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+linking shared-object nio4r_ext.so
+
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 nio4r_ext.so ./.gem.20141008-21900-1bywmn7
+installing default nio4r_ext libraries

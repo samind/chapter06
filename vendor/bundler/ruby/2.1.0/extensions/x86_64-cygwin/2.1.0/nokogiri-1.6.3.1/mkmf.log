@@ -1,0 +1,638 @@
+have_header: checking for iconv.h... -------------------- yes
+
+"gcc -o conftest.exe -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0/x86_64-cygwin -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0/ruby/backward -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0 -I. -I/usr/include -I/home/comtra/.rbenv/versions/2.1.2/include     -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -g -DXP_UNIX -O3 -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline conftest.c  -L. -L/home/comtra/.rbenv/versions/2.1.2/lib -L/usr/lib -L. -L/home/comtra/.rbenv/versions/2.1.2/lib  -fstack-protector     -lruby210  -lpthread -ldl   "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return 0;
+6: }
+/* end */
+
+"gcc -E -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0/x86_64-cygwin -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0/ruby/backward -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0 -I. -I/usr/include -I/home/comtra/.rbenv/versions/2.1.2/include     -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -g -DXP_UNIX -O3 -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <iconv.h>
+/* end */
+
+--------------------
+
+have_func: checking for iconv_open() in iconv.h... -------------------- no
+
+"gcc -o conftest.exe -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0/x86_64-cygwin -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0/ruby/backward -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0 -I. -I/usr/include -I/home/comtra/.rbenv/versions/2.1.2/include     -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -g -DXP_UNIX -O3 -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline conftest.c  -L. -L/home/comtra/.rbenv/versions/2.1.2/lib -L/usr/lib -L. -L/home/comtra/.rbenv/versions/2.1.2/lib  -fstack-protector     -lruby210  -lpthread -ldl   "
+conftest.c: 関数 ‘t’ 内:
+conftest.c:15:32: 警告: 変数 ‘p’ が設定されましたが使用されていません [-Wunused-but-set-variable]
+ int t(void) { void ((*volatile p)()); p = (void ((*)()))iconv_open; return 0; }
+                                ^
+/tmp/ccACdUSo.o:conftest.c:(.rdata$.refptr.libiconv_open[.refptr.libiconv_open]+0x0): `libiconv_open' に対する定義されていない参照です
+collect2: エラー: ld はステータス 1 で終了しました
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <iconv.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     printf("%p", &t);
+11:   }
+12: 
+13:   return 0;
+14: }
+15: int t(void) { void ((*volatile p)()); p = (void ((*)()))iconv_open; return 0; }
+/* end */
+
+"gcc -o conftest.exe -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0/x86_64-cygwin -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0/ruby/backward -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0 -I. -I/usr/include -I/home/comtra/.rbenv/versions/2.1.2/include     -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -g -DXP_UNIX -O3 -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline conftest.c  -L. -L/home/comtra/.rbenv/versions/2.1.2/lib -L/usr/lib -L. -L/home/comtra/.rbenv/versions/2.1.2/lib  -fstack-protector     -lruby210  -lpthread -ldl   "
+conftest.c: 関数 ‘t’ 内:
+conftest.c:15:1: エラー: 関数 ‘libiconv_open’ へ渡す引数が少なすぎます
+ int t(void) { iconv_open(); return 0; }
+ ^
+In file included from conftest.c:3:0:
+/usr/include/iconv.h:73:16: 備考: ここで宣言されています
+ extern iconv_t iconv_open (const char* tocode, const char* fromcode);
+                ^
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <iconv.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     printf("%p", &t);
+11:   }
+12: 
+13:   return 0;
+14: }
+15: int t(void) { iconv_open(); return 0; }
+/* end */
+
+--------------------
+
+have_library: checking for iconv_open() in -liconv... -------------------- yes
+
+"gcc -o conftest.exe -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0/x86_64-cygwin -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0/ruby/backward -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0 -I. -I/usr/include -I/home/comtra/.rbenv/versions/2.1.2/include     -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -g -DXP_UNIX -O3 -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline conftest.c  -L. -L/home/comtra/.rbenv/versions/2.1.2/lib -L/usr/lib -L. -L/home/comtra/.rbenv/versions/2.1.2/lib  -fstack-protector     -lruby210 -liconv  -lpthread -ldl   "
+conftest.c: 関数 ‘t’ 内:
+conftest.c:15:32: 警告: 変数 ‘p’ が設定されましたが使用されていません [-Wunused-but-set-variable]
+ int t(void) { void ((*volatile p)()); p = (void ((*)()))iconv_open; return 0; }
+                                ^
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <iconv.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     printf("%p", &t);
+11:   }
+12: 
+13:   return 0;
+14: }
+15: int t(void) { void ((*volatile p)()); p = (void ((*)()))iconv_open; return 0; }
+/* end */
+
+--------------------
+
+have_library: checking for main() in -llzma... -------------------- no
+
+"gcc -o conftest.exe -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0/x86_64-cygwin -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0/ruby/backward -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0 -I. -I/home/comtra/.rbenv/versions/2.1.2/include     -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -g -DXP_UNIX -O3 -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline -DNOKOGIRI_USE_PACKAGED_LIBRARIES conftest.c  -L. -L/home/comtra/.rbenv/versions/2.1.2/lib -L. -L/home/comtra/.rbenv/versions/2.1.2/lib  -fstack-protector     -lruby210 -llzma  -lpthread -ldl   "
+conftest.c: 関数 ‘t’ 内:
+conftest.c:13:32: 警告: 変数 ‘p’ が設定されましたが使用されていません [-Wunused-but-set-variable]
+ int t(void) { void ((*volatile p)()); p = (void ((*)()))main; return 0; }
+                                ^
+/usr/bin/ld: -llzma が見つかりません
+collect2: エラー: ld はステータス 1 で終了しました
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { void ((*volatile p)()); p = (void ((*)()))main; return 0; }
+/* end */
+
+"gcc -o conftest.exe -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0/x86_64-cygwin -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0/ruby/backward -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0 -I. -I/home/comtra/.rbenv/versions/2.1.2/include     -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -g -DXP_UNIX -O3 -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline -DNOKOGIRI_USE_PACKAGED_LIBRARIES conftest.c  -L. -L/home/comtra/.rbenv/versions/2.1.2/lib -L. -L/home/comtra/.rbenv/versions/2.1.2/lib  -fstack-protector     -lruby210 -llzma  -lpthread -ldl   "
+conftest.c: 関数 ‘t’ 内:
+conftest.c:13:1: エラー: 関数 ‘main’ へ渡す引数が少なすぎます
+ int t(void) { main(); return 0; }
+ ^
+conftest.c:5:5: 備考: ここで宣言されています
+ int main(int argc, char **argv)
+     ^
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { main(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for xmlParseDoc() in libxml/parser.h... -------------------- yes
+
+"gcc -o conftest.exe -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0/x86_64-cygwin -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0/ruby/backward -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0 -I. -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/include -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/include/libxml2 -I/usr/include -DLIBXML_STATIC -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/include/libxml2 -I/usr/include -DLIBXML_STATIC -I/home/comtra/.rbenv/versions/2.1.2/include    -DNOKOGIRI_LIBXML2_PATH\=\"/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0\" -DNOKOGIRI_LIBXSLT_PATH\=\"/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28\"  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -g -DXP_UNIX -O3 -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline -DNOKOGIRI_USE_PACKAGED_LIBRARIES conftest.c  -L. -L/home/comtra/.rbenv/versions/2.1.2/lib -L/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib -L/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib -L/usr/lib -L. -L/home/comtra/.rbenv/versions/2.1.2/lib  -fstack-protector    /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libexslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libxslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a -lruby210 /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libexslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libxslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a -lpthread -ldl   "
+conftest.c: 関数 ‘t’ 内:
+conftest.c:15:32: 警告: 変数 ‘p’ が設定されましたが使用されていません [-Wunused-but-set-variable]
+ int t(void) { void ((*volatile p)()); p = (void ((*)()))xmlParseDoc; return 0; }
+                                ^
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <libxml/parser.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     printf("%p", &t);
+11:   }
+12: 
+13:   return 0;
+14: }
+15: int t(void) { void ((*volatile p)()); p = (void ((*)()))xmlParseDoc; return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for xsltParseStylesheetDoc() in libxslt/xslt.h... -------------------- yes
+
+"gcc -o conftest.exe -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0/x86_64-cygwin -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0/ruby/backward -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0 -I. -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/include -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/include/libxml2 -I/usr/include -DLIBXML_STATIC -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/include/libxml2 -I/usr/include -DLIBXML_STATIC -I/home/comtra/.rbenv/versions/2.1.2/include    -DNOKOGIRI_LIBXML2_PATH\=\"/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0\" -DNOKOGIRI_LIBXSLT_PATH\=\"/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28\"  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -g -DXP_UNIX -O3 -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline -DNOKOGIRI_USE_PACKAGED_LIBRARIES conftest.c  -L. -L/home/comtra/.rbenv/versions/2.1.2/lib -L/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib -L/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib -L/usr/lib -L. -L/home/comtra/.rbenv/versions/2.1.2/lib  -fstack-protector    /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libexslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libxslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a -lruby210 /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libexslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libxslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a -lpthread -ldl   "
+conftest.c: 関数 ‘t’ 内:
+conftest.c:15:57: エラー: ‘xsltParseStylesheetDoc’ が宣言されていません (この関数内での最初の使用)
+ int t(void) { void ((*volatile p)()); p = (void ((*)()))xsltParseStylesheetDoc; return 0; }
+                                                         ^
+conftest.c:15:57: 備考: 未宣言の識別子は出現した各関数内で一回のみ報告されます
+conftest.c:15:32: 警告: 変数 ‘p’ が設定されましたが使用されていません [-Wunused-but-set-variable]
+ int t(void) { void ((*volatile p)()); p = (void ((*)()))xsltParseStylesheetDoc; return 0; }
+                                ^
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <libxslt/xslt.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     printf("%p", &t);
+11:   }
+12: 
+13:   return 0;
+14: }
+15: int t(void) { void ((*volatile p)()); p = (void ((*)()))xsltParseStylesheetDoc; return 0; }
+/* end */
+
+"gcc -o conftest.exe -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0/x86_64-cygwin -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0/ruby/backward -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0 -I. -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/include -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/include/libxml2 -I/usr/include -DLIBXML_STATIC -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/include/libxml2 -I/usr/include -DLIBXML_STATIC -I/home/comtra/.rbenv/versions/2.1.2/include    -DNOKOGIRI_LIBXML2_PATH\=\"/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0\" -DNOKOGIRI_LIBXSLT_PATH\=\"/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28\"  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -g -DXP_UNIX -O3 -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline -DNOKOGIRI_USE_PACKAGED_LIBRARIES conftest.c  -L. -L/home/comtra/.rbenv/versions/2.1.2/lib -L/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib -L/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib -L/usr/lib -L. -L/home/comtra/.rbenv/versions/2.1.2/lib  -fstack-protector    /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libexslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libxslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a -lruby210 /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libexslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libxslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a -lpthread -ldl   "
+conftest.c: 関数 ‘t’ 内:
+conftest.c:15:1: 警告: 関数 ‘xsltParseStylesheetDoc’ の暗黙的な宣言です [-Wimplicit-function-declaration]
+ int t(void) { xsltParseStylesheetDoc(); return 0; }
+ ^
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <libxslt/xslt.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     printf("%p", &t);
+11:   }
+12: 
+13:   return 0;
+14: }
+15: int t(void) { xsltParseStylesheetDoc(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for exsltFuncRegister() in libexslt/exslt.h... -------------------- yes
+
+"gcc -o conftest.exe -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0/x86_64-cygwin -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0/ruby/backward -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0 -I. -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/include -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/include/libxml2 -I/usr/include -DLIBXML_STATIC -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/include/libxml2 -I/usr/include -DLIBXML_STATIC -I/home/comtra/.rbenv/versions/2.1.2/include    -DNOKOGIRI_LIBXML2_PATH\=\"/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0\" -DNOKOGIRI_LIBXSLT_PATH\=\"/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28\"  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -g -DXP_UNIX -O3 -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline -DNOKOGIRI_USE_PACKAGED_LIBRARIES conftest.c  -L. -L/home/comtra/.rbenv/versions/2.1.2/lib -L/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib -L/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib -L/usr/lib -L. -L/home/comtra/.rbenv/versions/2.1.2/lib  -fstack-protector    /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libexslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libxslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a -lruby210 /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libexslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libxslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a -lpthread -ldl   "
+conftest.c: 関数 ‘t’ 内:
+conftest.c:15:32: 警告: 変数 ‘p’ が設定されましたが使用されていません [-Wunused-but-set-variable]
+ int t(void) { void ((*volatile p)()); p = (void ((*)()))exsltFuncRegister; return 0; }
+                                ^
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <libexslt/exslt.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     printf("%p", &t);
+11:   }
+12: 
+13:   return 0;
+14: }
+15: int t(void) { void ((*volatile p)()); p = (void ((*)()))exsltFuncRegister; return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for xmlHasFeature()... -------------------- yes
+
+"gcc -o conftest.exe -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0/x86_64-cygwin -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0/ruby/backward -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0 -I. -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/include -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/include/libxml2 -I/usr/include -DLIBXML_STATIC -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/include/libxml2 -I/usr/include -DLIBXML_STATIC -I/home/comtra/.rbenv/versions/2.1.2/include    -DNOKOGIRI_LIBXML2_PATH\=\"/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0\" -DNOKOGIRI_LIBXSLT_PATH\=\"/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28\"  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -g -DXP_UNIX -O3 -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline -DNOKOGIRI_USE_PACKAGED_LIBRARIES conftest.c  -L. -L/home/comtra/.rbenv/versions/2.1.2/lib -L/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib -L/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib -L/usr/lib -L. -L/home/comtra/.rbenv/versions/2.1.2/lib  -fstack-protector    /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libexslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libxslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a -lruby210 /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libexslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libxslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a -lpthread -ldl   "
+conftest.c: 関数 ‘t’ 内:
+conftest.c:13:57: エラー: ‘xmlHasFeature’ が宣言されていません (この関数内での最初の使用)
+ int t(void) { void ((*volatile p)()); p = (void ((*)()))xmlHasFeature; return 0; }
+                                                         ^
+conftest.c:13:57: 備考: 未宣言の識別子は出現した各関数内で一回のみ報告されます
+conftest.c:13:32: 警告: 変数 ‘p’ が設定されましたが使用されていません [-Wunused-but-set-variable]
+ int t(void) { void ((*volatile p)()); p = (void ((*)()))xmlHasFeature; return 0; }
+                                ^
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { void ((*volatile p)()); p = (void ((*)()))xmlHasFeature; return 0; }
+/* end */
+
+"gcc -o conftest.exe -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0/x86_64-cygwin -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0/ruby/backward -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0 -I. -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/include -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/include/libxml2 -I/usr/include -DLIBXML_STATIC -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/include/libxml2 -I/usr/include -DLIBXML_STATIC -I/home/comtra/.rbenv/versions/2.1.2/include    -DNOKOGIRI_LIBXML2_PATH\=\"/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0\" -DNOKOGIRI_LIBXSLT_PATH\=\"/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28\"  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -g -DXP_UNIX -O3 -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline -DNOKOGIRI_USE_PACKAGED_LIBRARIES conftest.c  -L. -L/home/comtra/.rbenv/versions/2.1.2/lib -L/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib -L/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib -L/usr/lib -L. -L/home/comtra/.rbenv/versions/2.1.2/lib  -fstack-protector    /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libexslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libxslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a -lruby210 /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libexslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libxslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a -lpthread -ldl   "
+conftest.c: 関数 ‘t’ 内:
+conftest.c:13:1: 警告: 関数 ‘xmlHasFeature’ の暗黙的な宣言です [-Wimplicit-function-declaration]
+ int t(void) { xmlHasFeature(); return 0; }
+ ^
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { xmlHasFeature(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for xmlFirstElementChild()... -------------------- yes
+
+"gcc -o conftest.exe -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0/x86_64-cygwin -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0/ruby/backward -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0 -I. -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/include -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/include/libxml2 -I/usr/include -DLIBXML_STATIC -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/include/libxml2 -I/usr/include -DLIBXML_STATIC -I/home/comtra/.rbenv/versions/2.1.2/include    -DNOKOGIRI_LIBXML2_PATH\=\"/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0\" -DNOKOGIRI_LIBXSLT_PATH\=\"/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28\"  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -g -DXP_UNIX -O3 -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline -DNOKOGIRI_USE_PACKAGED_LIBRARIES conftest.c  -L. -L/home/comtra/.rbenv/versions/2.1.2/lib -L/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib -L/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib -L/usr/lib -L. -L/home/comtra/.rbenv/versions/2.1.2/lib  -fstack-protector    /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libexslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libxslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a -lruby210 /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libexslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libxslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a -lpthread -ldl   "
+conftest.c: 関数 ‘t’ 内:
+conftest.c:13:57: エラー: ‘xmlFirstElementChild’ が宣言されていません (この関数内での最初の使用)
+ int t(void) { void ((*volatile p)()); p = (void ((*)()))xmlFirstElementChild; return 0; }
+                                                         ^
+conftest.c:13:57: 備考: 未宣言の識別子は出現した各関数内で一回のみ報告されます
+conftest.c:13:32: 警告: 変数 ‘p’ が設定されましたが使用されていません [-Wunused-but-set-variable]
+ int t(void) { void ((*volatile p)()); p = (void ((*)()))xmlFirstElementChild; return 0; }
+                                ^
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { void ((*volatile p)()); p = (void ((*)()))xmlFirstElementChild; return 0; }
+/* end */
+
+"gcc -o conftest.exe -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0/x86_64-cygwin -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0/ruby/backward -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0 -I. -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/include -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/include/libxml2 -I/usr/include -DLIBXML_STATIC -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/include/libxml2 -I/usr/include -DLIBXML_STATIC -I/home/comtra/.rbenv/versions/2.1.2/include    -DNOKOGIRI_LIBXML2_PATH\=\"/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0\" -DNOKOGIRI_LIBXSLT_PATH\=\"/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28\"  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -g -DXP_UNIX -O3 -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline -DNOKOGIRI_USE_PACKAGED_LIBRARIES conftest.c  -L. -L/home/comtra/.rbenv/versions/2.1.2/lib -L/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib -L/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib -L/usr/lib -L. -L/home/comtra/.rbenv/versions/2.1.2/lib  -fstack-protector    /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libexslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libxslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a -lruby210 /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libexslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libxslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a -lpthread -ldl   "
+conftest.c: 関数 ‘t’ 内:
+conftest.c:13:1: 警告: 関数 ‘xmlFirstElementChild’ の暗黙的な宣言です [-Wimplicit-function-declaration]
+ int t(void) { xmlFirstElementChild(); return 0; }
+ ^
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { xmlFirstElementChild(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for xmlRelaxNGSetParserStructuredErrors()... -------------------- yes
+
+"gcc -o conftest.exe -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0/x86_64-cygwin -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0/ruby/backward -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0 -I. -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/include -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/include/libxml2 -I/usr/include -DLIBXML_STATIC -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/include/libxml2 -I/usr/include -DLIBXML_STATIC -I/home/comtra/.rbenv/versions/2.1.2/include    -DNOKOGIRI_LIBXML2_PATH\=\"/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0\" -DNOKOGIRI_LIBXSLT_PATH\=\"/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28\"  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -g -DXP_UNIX -O3 -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline -DNOKOGIRI_USE_PACKAGED_LIBRARIES conftest.c  -L. -L/home/comtra/.rbenv/versions/2.1.2/lib -L/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib -L/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib -L/usr/lib -L. -L/home/comtra/.rbenv/versions/2.1.2/lib  -fstack-protector    /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libexslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libxslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a -lruby210 /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libexslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libxslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a -lpthread -ldl   "
+conftest.c: 関数 ‘t’ 内:
+conftest.c:13:57: エラー: ‘xmlRelaxNGSetParserStructuredErrors’ が宣言されていません (この関数内での最初の使用)
+ int t(void) { void ((*volatile p)()); p = (void ((*)()))xmlRelaxNGSetParserStructuredErrors; return 0; }
+                                                         ^
+conftest.c:13:57: 備考: 未宣言の識別子は出現した各関数内で一回のみ報告されます
+conftest.c:13:32: 警告: 変数 ‘p’ が設定されましたが使用されていません [-Wunused-but-set-variable]
+ int t(void) { void ((*volatile p)()); p = (void ((*)()))xmlRelaxNGSetParserStructuredErrors; return 0; }
+                                ^
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { void ((*volatile p)()); p = (void ((*)()))xmlRelaxNGSetParserStructuredErrors; return 0; }
+/* end */
+
+"gcc -o conftest.exe -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0/x86_64-cygwin -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0/ruby/backward -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0 -I. -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/include -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/include/libxml2 -I/usr/include -DLIBXML_STATIC -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/include/libxml2 -I/usr/include -DLIBXML_STATIC -I/home/comtra/.rbenv/versions/2.1.2/include    -DNOKOGIRI_LIBXML2_PATH\=\"/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0\" -DNOKOGIRI_LIBXSLT_PATH\=\"/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28\"  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -g -DXP_UNIX -O3 -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline -DNOKOGIRI_USE_PACKAGED_LIBRARIES conftest.c  -L. -L/home/comtra/.rbenv/versions/2.1.2/lib -L/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib -L/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib -L/usr/lib -L. -L/home/comtra/.rbenv/versions/2.1.2/lib  -fstack-protector    /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libexslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libxslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a -lruby210 /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libexslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libxslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a -lpthread -ldl   "
+conftest.c: 関数 ‘t’ 内:
+conftest.c:13:1: 警告: 関数 ‘xmlRelaxNGSetParserStructuredErrors’ の暗黙的な宣言です [-Wimplicit-function-declaration]
+ int t(void) { xmlRelaxNGSetParserStructuredErrors(); return 0; }
+ ^
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { xmlRelaxNGSetParserStructuredErrors(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for xmlRelaxNGSetParserStructuredErrors()... -------------------- yes
+
+"gcc -o conftest.exe -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0/x86_64-cygwin -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0/ruby/backward -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0 -I. -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/include -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/include/libxml2 -I/usr/include -DLIBXML_STATIC -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/include/libxml2 -I/usr/include -DLIBXML_STATIC -I/home/comtra/.rbenv/versions/2.1.2/include    -DNOKOGIRI_LIBXML2_PATH\=\"/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0\" -DNOKOGIRI_LIBXSLT_PATH\=\"/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28\"  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -g -DXP_UNIX -O3 -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline -DNOKOGIRI_USE_PACKAGED_LIBRARIES conftest.c  -L. -L/home/comtra/.rbenv/versions/2.1.2/lib -L/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib -L/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib -L/usr/lib -L. -L/home/comtra/.rbenv/versions/2.1.2/lib  -fstack-protector    /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libexslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libxslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a -lruby210 /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libexslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libxslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a -lpthread -ldl   "
+conftest.c: 関数 ‘t’ 内:
+conftest.c:13:57: エラー: ‘xmlRelaxNGSetParserStructuredErrors’ が宣言されていません (この関数内での最初の使用)
+ int t(void) { void ((*volatile p)()); p = (void ((*)()))xmlRelaxNGSetParserStructuredErrors; return 0; }
+                                                         ^
+conftest.c:13:57: 備考: 未宣言の識別子は出現した各関数内で一回のみ報告されます
+conftest.c:13:32: 警告: 変数 ‘p’ が設定されましたが使用されていません [-Wunused-but-set-variable]
+ int t(void) { void ((*volatile p)()); p = (void ((*)()))xmlRelaxNGSetParserStructuredErrors; return 0; }
+                                ^
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { void ((*volatile p)()); p = (void ((*)()))xmlRelaxNGSetParserStructuredErrors; return 0; }
+/* end */
+
+"gcc -o conftest.exe -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0/x86_64-cygwin -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0/ruby/backward -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0 -I. -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/include -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/include/libxml2 -I/usr/include -DLIBXML_STATIC -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/include/libxml2 -I/usr/include -DLIBXML_STATIC -I/home/comtra/.rbenv/versions/2.1.2/include    -DNOKOGIRI_LIBXML2_PATH\=\"/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0\" -DNOKOGIRI_LIBXSLT_PATH\=\"/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28\"  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -g -DXP_UNIX -O3 -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline -DNOKOGIRI_USE_PACKAGED_LIBRARIES conftest.c  -L. -L/home/comtra/.rbenv/versions/2.1.2/lib -L/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib -L/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib -L/usr/lib -L. -L/home/comtra/.rbenv/versions/2.1.2/lib  -fstack-protector    /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libexslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libxslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a -lruby210 /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libexslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libxslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a -lpthread -ldl   "
+conftest.c: 関数 ‘t’ 内:
+conftest.c:13:1: 警告: 関数 ‘xmlRelaxNGSetParserStructuredErrors’ の暗黙的な宣言です [-Wimplicit-function-declaration]
+ int t(void) { xmlRelaxNGSetParserStructuredErrors(); return 0; }
+ ^
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { xmlRelaxNGSetParserStructuredErrors(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for xmlRelaxNGSetValidStructuredErrors()... -------------------- yes
+
+"gcc -o conftest.exe -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0/x86_64-cygwin -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0/ruby/backward -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0 -I. -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/include -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/include/libxml2 -I/usr/include -DLIBXML_STATIC -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/include/libxml2 -I/usr/include -DLIBXML_STATIC -I/home/comtra/.rbenv/versions/2.1.2/include    -DNOKOGIRI_LIBXML2_PATH\=\"/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0\" -DNOKOGIRI_LIBXSLT_PATH\=\"/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28\"  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -g -DXP_UNIX -O3 -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline -DNOKOGIRI_USE_PACKAGED_LIBRARIES conftest.c  -L. -L/home/comtra/.rbenv/versions/2.1.2/lib -L/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib -L/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib -L/usr/lib -L. -L/home/comtra/.rbenv/versions/2.1.2/lib  -fstack-protector    /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libexslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libxslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a -lruby210 /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libexslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libxslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a -lpthread -ldl   "
+conftest.c: 関数 ‘t’ 内:
+conftest.c:13:57: エラー: ‘xmlRelaxNGSetValidStructuredErrors’ が宣言されていません (この関数内での最初の使用)
+ int t(void) { void ((*volatile p)()); p = (void ((*)()))xmlRelaxNGSetValidStructuredErrors; return 0; }
+                                                         ^
+conftest.c:13:57: 備考: 未宣言の識別子は出現した各関数内で一回のみ報告されます
+conftest.c:13:32: 警告: 変数 ‘p’ が設定されましたが使用されていません [-Wunused-but-set-variable]
+ int t(void) { void ((*volatile p)()); p = (void ((*)()))xmlRelaxNGSetValidStructuredErrors; return 0; }
+                                ^
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { void ((*volatile p)()); p = (void ((*)()))xmlRelaxNGSetValidStructuredErrors; return 0; }
+/* end */
+
+"gcc -o conftest.exe -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0/x86_64-cygwin -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0/ruby/backward -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0 -I. -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/include -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/include/libxml2 -I/usr/include -DLIBXML_STATIC -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/include/libxml2 -I/usr/include -DLIBXML_STATIC -I/home/comtra/.rbenv/versions/2.1.2/include    -DNOKOGIRI_LIBXML2_PATH\=\"/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0\" -DNOKOGIRI_LIBXSLT_PATH\=\"/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28\"  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -g -DXP_UNIX -O3 -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline -DNOKOGIRI_USE_PACKAGED_LIBRARIES conftest.c  -L. -L/home/comtra/.rbenv/versions/2.1.2/lib -L/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib -L/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib -L/usr/lib -L. -L/home/comtra/.rbenv/versions/2.1.2/lib  -fstack-protector    /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libexslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libxslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a -lruby210 /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libexslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libxslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a -lpthread -ldl   "
+conftest.c: 関数 ‘t’ 内:
+conftest.c:13:1: 警告: 関数 ‘xmlRelaxNGSetValidStructuredErrors’ の暗黙的な宣言です [-Wimplicit-function-declaration]
+ int t(void) { xmlRelaxNGSetValidStructuredErrors(); return 0; }
+ ^
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { xmlRelaxNGSetValidStructuredErrors(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for xmlSchemaSetValidStructuredErrors()... -------------------- yes
+
+"gcc -o conftest.exe -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0/x86_64-cygwin -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0/ruby/backward -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0 -I. -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/include -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/include/libxml2 -I/usr/include -DLIBXML_STATIC -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/include/libxml2 -I/usr/include -DLIBXML_STATIC -I/home/comtra/.rbenv/versions/2.1.2/include    -DNOKOGIRI_LIBXML2_PATH\=\"/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0\" -DNOKOGIRI_LIBXSLT_PATH\=\"/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28\"  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -g -DXP_UNIX -O3 -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline -DNOKOGIRI_USE_PACKAGED_LIBRARIES conftest.c  -L. -L/home/comtra/.rbenv/versions/2.1.2/lib -L/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib -L/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib -L/usr/lib -L. -L/home/comtra/.rbenv/versions/2.1.2/lib  -fstack-protector    /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libexslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libxslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a -lruby210 /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libexslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libxslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a -lpthread -ldl   "
+conftest.c: 関数 ‘t’ 内:
+conftest.c:13:57: エラー: ‘xmlSchemaSetValidStructuredErrors’ が宣言されていません (この関数内での最初の使用)
+ int t(void) { void ((*volatile p)()); p = (void ((*)()))xmlSchemaSetValidStructuredErrors; return 0; }
+                                                         ^
+conftest.c:13:57: 備考: 未宣言の識別子は出現した各関数内で一回のみ報告されます
+conftest.c:13:32: 警告: 変数 ‘p’ が設定されましたが使用されていません [-Wunused-but-set-variable]
+ int t(void) { void ((*volatile p)()); p = (void ((*)()))xmlSchemaSetValidStructuredErrors; return 0; }
+                                ^
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { void ((*volatile p)()); p = (void ((*)()))xmlSchemaSetValidStructuredErrors; return 0; }
+/* end */
+
+"gcc -o conftest.exe -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0/x86_64-cygwin -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0/ruby/backward -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0 -I. -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/include -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/include/libxml2 -I/usr/include -DLIBXML_STATIC -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/include/libxml2 -I/usr/include -DLIBXML_STATIC -I/home/comtra/.rbenv/versions/2.1.2/include    -DNOKOGIRI_LIBXML2_PATH\=\"/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0\" -DNOKOGIRI_LIBXSLT_PATH\=\"/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28\"  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -g -DXP_UNIX -O3 -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline -DNOKOGIRI_USE_PACKAGED_LIBRARIES conftest.c  -L. -L/home/comtra/.rbenv/versions/2.1.2/lib -L/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib -L/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib -L/usr/lib -L. -L/home/comtra/.rbenv/versions/2.1.2/lib  -fstack-protector    /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libexslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libxslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a -lruby210 /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libexslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libxslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a -lpthread -ldl   "
+conftest.c: 関数 ‘t’ 内:
+conftest.c:13:1: 警告: 関数 ‘xmlSchemaSetValidStructuredErrors’ の暗黙的な宣言です [-Wimplicit-function-declaration]
+ int t(void) { xmlSchemaSetValidStructuredErrors(); return 0; }
+ ^
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { xmlSchemaSetValidStructuredErrors(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for xmlSchemaSetParserStructuredErrors()... -------------------- yes
+
+"gcc -o conftest.exe -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0/x86_64-cygwin -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0/ruby/backward -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0 -I. -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/include -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/include/libxml2 -I/usr/include -DLIBXML_STATIC -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/include/libxml2 -I/usr/include -DLIBXML_STATIC -I/home/comtra/.rbenv/versions/2.1.2/include    -DNOKOGIRI_LIBXML2_PATH\=\"/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0\" -DNOKOGIRI_LIBXSLT_PATH\=\"/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28\"  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -g -DXP_UNIX -O3 -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline -DNOKOGIRI_USE_PACKAGED_LIBRARIES conftest.c  -L. -L/home/comtra/.rbenv/versions/2.1.2/lib -L/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib -L/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib -L/usr/lib -L. -L/home/comtra/.rbenv/versions/2.1.2/lib  -fstack-protector    /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libexslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libxslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a -lruby210 /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libexslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libxslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a -lpthread -ldl   "
+conftest.c: 関数 ‘t’ 内:
+conftest.c:13:57: エラー: ‘xmlSchemaSetParserStructuredErrors’ が宣言されていません (この関数内での最初の使用)
+ int t(void) { void ((*volatile p)()); p = (void ((*)()))xmlSchemaSetParserStructuredErrors; return 0; }
+                                                         ^
+conftest.c:13:57: 備考: 未宣言の識別子は出現した各関数内で一回のみ報告されます
+conftest.c:13:32: 警告: 変数 ‘p’ が設定されましたが使用されていません [-Wunused-but-set-variable]
+ int t(void) { void ((*volatile p)()); p = (void ((*)()))xmlSchemaSetParserStructuredErrors; return 0; }
+                                ^
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { void ((*volatile p)()); p = (void ((*)()))xmlSchemaSetParserStructuredErrors; return 0; }
+/* end */
+
+"gcc -o conftest.exe -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0/x86_64-cygwin -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0/ruby/backward -I/home/comtra/.rbenv/versions/2.1.2/include/ruby-2.1.0 -I. -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/include -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/include/libxml2 -I/usr/include -DLIBXML_STATIC -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/include/libxml2 -I/usr/include -DLIBXML_STATIC -I/home/comtra/.rbenv/versions/2.1.2/include    -DNOKOGIRI_LIBXML2_PATH\=\"/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0\" -DNOKOGIRI_LIBXSLT_PATH\=\"/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28\"  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -g -DXP_UNIX -O3 -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline -DNOKOGIRI_USE_PACKAGED_LIBRARIES conftest.c  -L. -L/home/comtra/.rbenv/versions/2.1.2/lib -L/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib -L/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib -L/usr/lib -L. -L/home/comtra/.rbenv/versions/2.1.2/lib  -fstack-protector    /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libexslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libxslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a -lruby210 /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libexslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxslt/1.1.28/lib/libxslt.a -lm -liconv -lz /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports/x86_64-unknown-cygwin/libxml2/2.8.0/lib/libxml2.a -lpthread -ldl   "
+conftest.c: 関数 ‘t’ 内:
+conftest.c:13:1: 警告: 関数 ‘xmlSchemaSetParserStructuredErrors’ の暗黙的な宣言です [-Wimplicit-function-declaration]
+ int t(void) { xmlSchemaSetParserStructuredErrors(); return 0; }
+ ^
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { xmlSchemaSetParserStructuredErrors(); return 0; }
+/* end */
+
+--------------------
+

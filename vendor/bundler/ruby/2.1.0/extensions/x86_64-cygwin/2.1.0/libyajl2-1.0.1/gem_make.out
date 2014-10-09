@@ -1,0 +1,15 @@
+/home/comtra/.rbenv/versions/2.1.2/bin/ruby.exe extconf.rb 
+creating Makefile
+/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/libyajl2-1.0.1/ext/libyajl2
+
+make "DESTDIR=" clean
+make: *** No rule to make target 'clean'.  中止.
+
+make "DESTDIR="
+make: Nothing to be done for 'all'.
+
+make "DESTDIR=" install
+mkdir -p /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/libyajl2-1.0.1/lib/libyajl2/vendored-libyajl2/lib
+cp libyajl.so /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/libyajl2-1.0.1/lib/libyajl2/vendored-libyajl2/lib/libyajl.so
+mkdir -p /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/libyajl2-1.0.1/lib/libyajl2/vendored-libyajl2/include/yajl
+cp yajl/*.h /home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/libyajl2-1.0.1/lib/libyajl2/vendored-libyajl2/include/yajl

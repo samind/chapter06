@@ -1,0 +1,65 @@
+/home/comtra/.rbenv/versions/2.1.2/bin/ruby.exe extconf.rb 
+ -I/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/libyajl2-1.0.1/lib/libyajl2/vendored-libyajl2/include $(cflags)
+ -L/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/libyajl2-1.0.1/lib/libyajl2/vendored-libyajl2/lib -L. -L/home/comtra/.rbenv/versions/2.1.2/lib  -fstack-protector
+checking for yajl/yajl_tree.h... yes
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling encoder.c
+linking shared-object ffi_yajl/ext/encoder.so
+encoder.o: 関数 `rb_cObject_ffi_yajl' 内:
+/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/ffi-yajl-1.1.0/ext/ffi_yajl/ext/encoder/encoder.c:280: `yajl_gen_number' に対する定義されていない参照です
+/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/ffi-yajl-1.1.0/ext/ffi_yajl/ext/encoder/encoder.c:280:(.text+0x181): 再配置がオーバーフローしないように切り詰められました: R_X86_64_PC32 (未定義シンボル `yajl_gen_number' に対して)
+encoder.o: 関数 `rb_cTime_ffi_yajl' 内:
+/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/ffi-yajl-1.1.0/ext/ffi_yajl/ext/encoder/encoder.c:261: `yajl_gen_string' に対する定義されていない参照です
+/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/ffi-yajl-1.1.0/ext/ffi_yajl/ext/encoder/encoder.c:261:(.text+0x28f): 再配置がオーバーフローしないように切り詰められました: R_X86_64_PC32 (未定義シンボル `yajl_gen_string' に対して)
+encoder.o: 関数 `rb_cString_ffi_yajl' 内:
+/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/ffi-yajl-1.1.0/ext/ffi_yajl/ext/encoder/encoder.c:224: `yajl_gen_string' に対する定義されていない参照です
+/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/ffi-yajl-1.1.0/ext/ffi_yajl/ext/encoder/encoder.c:224:(.text+0x366): 再配置がオーバーフローしないように切り詰められました: R_X86_64_PC32 (未定義シンボル `yajl_gen_string' に対して)
+encoder.o: 関数 `rb_cFloat_ffi_yajl' 内:
+/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/ffi-yajl-1.1.0/ext/ffi_yajl/ext/encoder/encoder.c:213: `yajl_gen_number' に対する定義されていない参照です
+/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/ffi-yajl-1.1.0/ext/ffi_yajl/ext/encoder/encoder.c:213:(.text+0x4b9): 再配置がオーバーフローしないように切り詰められました: R_X86_64_PC32 (未定義シンボル `yajl_gen_number' に対して)
+/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/ffi-yajl-1.1.0/ext/ffi_yajl/ext/encoder/encoder.c:209: `yajl_gen_string' に対する定義されていない参照です
+/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/ffi-yajl-1.1.0/ext/ffi_yajl/ext/encoder/encoder.c:209:(.text+0x531): 再配置がオーバーフローしないように切り詰められました: R_X86_64_PC32 (未定義シンボル `yajl_gen_string' に対して)
+encoder.o: 関数 `rb_cBignum_ffi_yajl' 内:
+/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/ffi-yajl-1.1.0/ext/ffi_yajl/ext/encoder/encoder.c:190: `yajl_gen_number' に対する定義されていない参照です
+/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/ffi-yajl-1.1.0/ext/ffi_yajl/ext/encoder/encoder.c:190:(.text+0x699): 再配置がオーバーフローしないように切り詰められました: R_X86_64_PC32 (未定義シンボル `yajl_gen_number' に対して)
+/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/ffi-yajl-1.1.0/ext/ffi_yajl/ext/encoder/encoder.c:186: `yajl_gen_string' に対する定義されていない参照です
+/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/ffi-yajl-1.1.0/ext/ffi_yajl/ext/encoder/encoder.c:186:(.text+0x711): 再配置がオーバーフローしないように切り詰められました: R_X86_64_PC32 (未定義シンボル `yajl_gen_string' に対して)
+encoder.o: 関数 `rb_cFixnum_ffi_yajl' 内:
+/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/ffi-yajl-1.1.0/ext/ffi_yajl/ext/encoder/encoder.c:167: `yajl_gen_number' に対する定義されていない参照です
+/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/ffi-yajl-1.1.0/ext/ffi_yajl/ext/encoder/encoder.c:167:(.text+0x879): 再配置がオーバーフローしないように切り詰められました: R_X86_64_PC32 (未定義シンボル `yajl_gen_number' に対して)
+/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/ffi-yajl-1.1.0/ext/ffi_yajl/ext/encoder/encoder.c:163: `yajl_gen_string' に対する定義されていない参照です
+/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/ffi-yajl-1.1.0/ext/ffi_yajl/ext/encoder/encoder.c:163:(.text+0x8f1): 再配置がオーバーフローしないように切り詰められました: R_X86_64_PC32 (未定義シンボル `yajl_gen_string' に対して)
+encoder.o: 関数 `rb_cFalseClass_ffi_yajl' 内:
+/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/ffi-yajl-1.1.0/ext/ffi_yajl/ext/encoder/encoder.c:144: `yajl_gen_bool' に対する定義されていない参照です
+/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/ffi-yajl-1.1.0/ext/ffi_yajl/ext/encoder/encoder.c:144:(.text+0x99c): 再配置がオーバーフローしないように切り詰められました: R_X86_64_PC32 (未定義シンボル `yajl_gen_bool' に対して)
+encoder.o: 関数 `rb_cTrueClass_ffi_yajl' 内:
+/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/ffi-yajl-1.1.0/ext/ffi_yajl/ext/encoder/encoder.c:134: `yajl_gen_bool' に対する定義されていない参照です
+/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/ffi-yajl-1.1.0/ext/ffi_yajl/ext/encoder/encoder.c:134:(.text+0xa1f): 追加の再配置オーバーフローは出力から除かれます
+encoder.o: 関数 `rb_cNilClass_ffi_yajl' 内:
+/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/ffi-yajl-1.1.0/ext/ffi_yajl/ext/encoder/encoder.c:124: `yajl_gen_null' に対する定義されていない参照です
+encoder.o: 関数 `rb_cArray_ffi_yajl' 内:
+/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/ffi-yajl-1.1.0/ext/ffi_yajl/ext/encoder/encoder.c:106: `yajl_gen_array_open' に対する定義されていない参照です
+/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/ffi-yajl-1.1.0/ext/ffi_yajl/ext/encoder/encoder.c:113: `yajl_gen_array_close' に対する定義されていない参照です
+encoder.o: 関数 `rb_cHash_ffi_yajl' 内:
+/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/ffi-yajl-1.1.0/ext/ffi_yajl/ext/encoder/encoder.c:87: `yajl_gen_map_open' に対する定義されていない参照です
+/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/ffi-yajl-1.1.0/ext/ffi_yajl/ext/encoder/encoder.c:91: `yajl_gen_map_close' に対する定義されていない参照です
+encoder.o: 関数 `mEncoder_do_yajl_encode' 内:
+/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/ffi-yajl-1.1.0/ext/ffi_yajl/ext/encoder/encoder.c:26: `yajl_gen_alloc' に対する定義されていない参照です
+/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/ffi-yajl-1.1.0/ext/ffi_yajl/ext/encoder/encoder.c:39: `yajl_gen_config' に対する定義されていない参照です
+/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/ffi-yajl-1.1.0/ext/ffi_yajl/ext/encoder/encoder.c:52: `yajl_gen_get_buf' に対する定義されていない参照です
+/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/ffi-yajl-1.1.0/ext/ffi_yajl/ext/encoder/encoder.c:56: `yajl_gen_free' に対する定義されていない参照です
+/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/ffi-yajl-1.1.0/ext/ffi_yajl/ext/encoder/encoder.c:32: `yajl_gen_config' に対する定義されていない参照です
+/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/ffi-yajl-1.1.0/ext/ffi_yajl/ext/encoder/encoder.c:29: `yajl_gen_config' に対する定義されていない参照です
+encoder.o: 関数 `object_to_s_ffi_yajl' 内:
+/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/ffi-yajl-1.1.0/ext/ffi_yajl/ext/encoder/encoder.c:239: `yajl_gen_string' に対する定義されていない参照です
+/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/ffi-yajl-1.1.0/ext/ffi_yajl/ext/encoder/encoder.c:239: `yajl_gen_string' に対する定義されていない参照です
+/home/comtra/work1/chapter06/vendor/bundler/ruby/2.1.0/gems/ffi-yajl-1.1.0/ext/ffi_yajl/ext/encoder/encoder.c:239: `yajl_gen_string' に対する定義されていない参照です
+collect2: エラー: ld はステータス 1 で終了しました
+Makefile:232: recipe for target 'encoder.so' failed
+make: *** [encoder.so] Error 1
+
+make failed, exit code 2
