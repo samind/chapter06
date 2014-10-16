@@ -8,6 +8,9 @@
     },
     "ruby-env": {
       "path": "./site-cookbooks/ruby-env"
+    },
+    "env-proxy": {
+      "path": "./site-cookbooks/env-proxy"
     }
   }
 }

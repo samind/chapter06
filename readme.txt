@@ -19,3 +19,30 @@
   6-16 入門ではリソースyum_repositoryにより、yumでremiを有効にしているが、yum_repositoryが動作しなかったので、配列のphpをphp55に変更して対処した(php55.rb)
 
 ・ruby環境の構築
+ list
+  6-18
+  6-23 rbenv + ruby-build + rubyｲﾝｽﾄｰﾙ 
+
+　　※最後のrubyインストール時にhttp_proxyの定義が必要な為にrecipe(env-proxy)を追加。
+　　　attributes
+      /////////////////////////////////////////////////////////////////////////
+       default["env-proxy"]["proxy"] = "http://proxy2.xxxxxcom.co.jp:8080"
+      /////////////////////////////////////////////////////////////////////////
+      recipes/default.rb 以下をexecuteの直前に追記。
+      /////////////////////////////////////////////////////////////////////////
+      proxy = node['env-proxy']['proxy']
+ 
+      bash "proxy on profile" do
+        not_if { proxy.empty? }
+        code <<-EOC
+        echo "export http_proxy=#{proxy}" >> /etc/profile
+        echo "export https_proxy=#{proxy}" >> /etc/profile
+        source /etc/profile
+       EOC
+      end
+      /////////////////////////////////////////////////////////////////////////
+
+
+・Unicornの追加
+　
+　
