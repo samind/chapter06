@@ -1,3 +1,12 @@
+#
+# Cookbook Name:: ruby-env
+# Recipe:: default
+#
+# Copyright 2014, YOUR_COMPANY_NAME
+#
+# All rights reserved - Do Not Redistribute
+#
+
 %w{gcc git openssl-devel sqlite-devel}.each do |pkg|
   package pkg do
     action :install
@@ -19,3 +28,4 @@ template ".bash_profile" do
   group  node['ruby-env']['group']
   not_if "grep rbenv ~/.bash_profile", :environment => { :'HOME' => "/home/#{node['ruby-env']['user']}" }
 end
+
