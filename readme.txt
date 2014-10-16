@@ -44,5 +44,8 @@
 
 
 ・Unicornの追加
-　
+ list
+  6-24 ruby-env/recipes/default.erbに追記
+  6-25 Unicornでnginxが使えるようにするためにnginx.conf用のテンプレート編集
+  
 　
