@@ -48,4 +48,4 @@
   6-24 ruby-env/recipes/default.erbに追記
   6-25 Unicornでnginxが使えるようにするためにnginx.conf用のテンプレート編集
   
-　
+P165の最後、gem install rails -V まで実行　←たぶん20分くらいかかった。vagrant haltしておく。

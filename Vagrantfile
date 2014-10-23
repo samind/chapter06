@@ -29,16 +29,16 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   
   config.vm.provision :shell, :path => "chef_inst.sh"
-  config.vm.provision :shell, :path => "repo_base.sh"
+#  config.vm.provision :shell, :path => "repo_base.sh"
   config.vm.provision :shell, :path => "repo_epel.sh"
   config.vm.provision :shell, :path => "repo_remi.sh"
   config.vm.provision :shell, :path => "git_proxy.sh"
-#  config.vm.provision :shell, :path => "env_proxy.sh"
   
   #inline: 'sudo rpm -ihv http://192.168.1.140/vmshare/chef-11.16.2-1.el6.x86_64.rpm'
   #inline: 'curl -L https://www.opscode.com/chef/install.sh | sudo bash'
 
   config.vm.provision :chef_solo do |chef|
+    chef.log_level = :debug
     chef.cookbooks_path = ["./cookbooks", "./site-cookbooks"]
     chef.json = {
       nginx: {
